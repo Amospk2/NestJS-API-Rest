@@ -1,8 +1,7 @@
 import { Article as RawArticle } from '@prisma/client';
-import { Article } from '@application/entities/article';
-import { Content } from '@application/entities/content';
-import { Title } from '@application/entities/title';
-
+import { Article } from '../../../../application/entities/article';
+import { Title } from '../../../../application/entities/title';
+import { Content } from '../../../../application/entities/content';
 export class PrismaArticleMapper {
     static toPrisma(article: Article) {
         return {

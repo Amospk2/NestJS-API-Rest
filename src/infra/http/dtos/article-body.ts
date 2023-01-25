@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator';
 
-export class CreateArticleBody {
+export class ArticleBody {
     @IsNotEmpty()
     title: string;
 

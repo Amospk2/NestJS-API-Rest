@@ -1,24 +1,29 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { AppModule } from './../src/app.module';
+import { DatabaseModule } from '@infra/database/database.module';
+import { ArticleController } from '@infra/http/controllers/article.controller';
+import { CreateNewArticle } from '@application/usecases/create-new-article';
+import { GetArticles } from '@application/usecases/get-articles';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
+      imports: [DatabaseModule],
+      controllers: [ArticleController],
+      providers: [CreateNewArticle, GetArticles],
     }).compile();
 
     app = moduleFixture.createNestApplication();
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/post (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/post')
       .expect(200)
-      .expect('Hello World!');
+      .expect(expect.objectContaining({ "articles": [] }));
   });
 });

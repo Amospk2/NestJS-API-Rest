@@ -9,6 +9,8 @@ import { PrismaArticleMapper } from '../mappers/prisma-article-mapper';
 export class PrismaArticleRepository implements ArticleRepository {
 
     constructor(private prisma: PrismaService) { }
+
+
     async listArticles(): Promise<Article[]> {
         const articles = await this.prisma.article.findMany();
 
@@ -16,11 +18,43 @@ export class PrismaArticleRepository implements ArticleRepository {
     }
 
     async create(article: Article): Promise<void> {
+        const raw = PrismaArticleMapper.toPrisma(article);
         await this.prisma.article.create({
-            data: {
-                id: randomUUID(), title: article.title.value, content: article.content.value
-            }
-        })
+            data: raw
+        });
     }
+
+    async getArticleById(articleID: string): Promise<Article> {
+        const article = await this.prisma.article.findFirst({
+            where: {
+                id: articleID
+            }
+        });
+        return PrismaArticleMapper.toDomain(article);
+    }
+
+    async updateArticle(article: Article): Promise<Article> {
+        const raw = PrismaArticleMapper.toPrisma(article);
+        const newArticle = await this.prisma.article.update({
+            where: {
+                id: raw.id
+            },
+            data: raw
+        });
+        console.log(raw);
+        return PrismaArticleMapper.toDomain(newArticle);
+
+    }
+
+
+    async deleteArticle(articleID: string): Promise<void> {
+        await this.prisma.article.delete({
+            where: {
+                id: articleID
+            }
+        });
+    }
+
+
 
 }

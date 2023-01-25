@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { PrismaService } from './prisma/prisma.service';
-import { ArticleRepository } from '@application/repositories/article-repository';
-import { PrismaArticleRepository } from '@infra/database/prisma/repository/prisma-article-repository';
+import { ArticleRepository } from '../../application/repositories/article-repository';
+import { PrismaArticleRepository } from './prisma/repository/prisma-article-repository';
+
 
 
 @Module({
@@ -10,6 +11,6 @@ import { PrismaArticleRepository } from '@infra/database/prisma/repository/prism
       provide: ArticleRepository,
       useClass: PrismaArticleRepository
     }],
-    exports:[ArticleRepository]
+  exports: [ArticleRepository]
 })
 export class DatabaseModule { }
