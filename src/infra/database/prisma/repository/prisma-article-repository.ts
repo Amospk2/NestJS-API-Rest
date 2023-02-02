@@ -41,7 +41,6 @@ export class PrismaArticleRepository implements ArticleRepository {
             },
             data: raw
         });
-        console.log(raw);
         return PrismaArticleMapper.toDomain(newArticle);
 
     }

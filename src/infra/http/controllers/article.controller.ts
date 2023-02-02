@@ -1,11 +1,12 @@
 import { Controller, Body, Post, Get, Param, Put, Delete, HttpException, HttpStatus } from '@nestjs/common';
-import { CreateNewArticle } from '../../../application/usecases/create-new-article';
 import { ArticleBody } from '../dtos/article-body';
 import { ArticleViewModel } from '../view-model/post-view-model';
-import { GetArticles } from '../../../application/usecases/get-articles';
-import { GetArticleById } from '../../../application/usecases/get-article-by-id';
-import { UpdateArticle } from '../../../application/usecases/update-article';
-import { DeleteArticle } from '../../../application/usecases/delete-article';
+import { CreateNewArticle } from 'src/application/usecases/article-useclases/create-new-article';
+import { GetArticles } from 'src/application/usecases/article-useclases/get-articles';
+import { GetArticleById } from 'src/application/usecases/article-useclases/get-article-by-id';
+import { UpdateArticle } from 'src/application/usecases/article-useclases/update-article';
+import { DeleteArticle } from 'src/application/usecases/article-useclases/delete-article';
+
 
 
 @Controller('article')

@@ -1,6 +1,5 @@
-import { inMemoryArticleRepository } from '../../../test/repositories/in-memory-article-repository';
+import { inMemoryArticleRepository } from '../../../../test/repositories/in-memory-article-repository';
 import { GetArticles } from './get-articles';
-import { Article } from '../entities/article';
 
 
 describe('List the Articles', () => {

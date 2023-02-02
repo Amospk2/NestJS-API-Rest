@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { ArticleRepository } from '../repositories/article-repository';
-import { Article } from '../entities/article';
-import { Content } from '../entities/content';
-import { Title } from '../entities/title';
+import { ArticleRepository } from '../../repositories/article-repository';
+import { Article } from '../../entities/article';
+import { Content } from '../../entities/content';
+import { Title } from '../../entities/title';
 
 interface SendArticleRequest {
     articleID: string,

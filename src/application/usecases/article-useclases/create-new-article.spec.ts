@@ -1,5 +1,5 @@
 import { CreateNewArticle } from './create-new-article';
-import { inMemoryArticleRepository } from '../../../test/repositories/in-memory-article-repository';
+import { inMemoryArticleRepository } from '../../../../test/repositories/in-memory-article-repository';
 
 describe('Create New Article', () => {
   it('should be able to create a new Article', async () => {

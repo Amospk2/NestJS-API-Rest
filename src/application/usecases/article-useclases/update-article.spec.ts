@@ -1,4 +1,4 @@
-import { inMemoryArticleRepository } from '../../../test/repositories/in-memory-article-repository';
+import { inMemoryArticleRepository } from '../../../../test/repositories/in-memory-article-repository';
 import { UpdateArticle } from './update-article';
 
 describe('Create New Article', () => {

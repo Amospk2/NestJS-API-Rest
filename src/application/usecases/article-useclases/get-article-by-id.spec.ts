@@ -1,7 +1,7 @@
-import { inMemoryArticleRepository } from '../../../test/repositories/in-memory-article-repository';
+import { inMemoryArticleRepository } from '../../../../test/repositories/in-memory-article-repository';
 import { GetArticleById } from './get-article-by-id';
 
-describe('Delete a existent Article', () => {
+describe('Get a specify Article', () => {
     const ArticleRepository = new inMemoryArticleRepository();
     const getArticlesById = new GetArticleById(ArticleRepository);
 

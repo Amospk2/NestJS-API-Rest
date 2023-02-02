@@ -17,3 +17,15 @@ model Article {
   content String
   createdAt   DateTime  @default(now())
 }
+
+
+
+model User{
+  id String @id
+  name String @unique
+  email String @unique
+  age DateTime
+  address String
+  password String
+  createdAt   DateTime  @default(now())
+}
