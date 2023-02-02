@@ -24,7 +24,7 @@
 
 ## Description
 
-API simples para crud de artigos usando NestJS, prisma e clean architecture!
+API simples que oferece um CRUD de artigos e usuários usando NestJS, prisma e clean architecture!
 
 ## Installation
 
